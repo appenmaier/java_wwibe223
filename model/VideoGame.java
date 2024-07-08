@@ -9,7 +9,7 @@ import java.util.Objects;
  * @version 1.0
  *
  */
-public class VideoGame {
+public class VideoGame implements Comparable<VideoGame> {
 
   private final String title;
   private final String publishingYear;
@@ -68,6 +68,11 @@ public class VideoGame {
         && Objects.equals(publishingYear, other.publishingYear)
         && Objects.equals(title, other.title)
         && Objects.equals(videoGameSystem, other.videoGameSystem);
+  }
+
+  @Override
+  public int compareTo(VideoGame otherVideoGame) {
+    return this.title.compareTo(otherVideoGame.title);
   }
 
 }
