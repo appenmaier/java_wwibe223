@@ -8,7 +8,7 @@ import model.VideoGameByRatingDescendingComparator;
 import model.VideoGameSystem;
 
 /**
- * Komparatoren
+ * Demo 4: Komparatoren
  *
  * @author Daniel Appenmaier
  * @version 1.0

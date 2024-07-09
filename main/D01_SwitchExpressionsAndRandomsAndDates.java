@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 /**
- * Switch-Ausdrücke, Pseudozufallszahlen und Datums/Zeitangaben
+ * Demo 1: Switch-Ausdrücke, Pseudozufallszahlen und Datums/Zeitangaben
  *
  * @author Daniel Appenmaier
  * @version 1.0
