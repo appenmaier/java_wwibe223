@@ -13,11 +13,11 @@ public class VideoGameByRatingDescendingComparator implements Comparator<VideoGa
 
   @Override
   public int compare(VideoGame videoGame1, VideoGame videoGame2) {
-    // Double averageRating1 = videoGame1.getAverageRating();
-    // Double averageRating2 = videoGame2.getAverageRating();
+    // Double averageRating1 = videoGame1.averageRating();
+    // Double averageRating2 = videoGame2.averageRating();
     //
     // return averageRating2.compareTo(averageRating1);
-    return Double.valueOf(videoGame2.getAverageRating()).compareTo(videoGame1.getAverageRating());
+    return Double.valueOf(videoGame2.averageRating()).compareTo(videoGame1.averageRating());
   }
 
 }
