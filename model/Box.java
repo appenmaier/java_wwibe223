@@ -7,25 +7,29 @@ package model;
  * @version 1.0
  *
  */
-public class Box {
+public class Box<T, U extends Number> {
 
-  private Object contentA;
-  private Object contentB;
+  private T contentA;
+  private U contentB;
 
-  public Object getContentA() {
+  public T getContentA() {
     return contentA;
   }
 
-  public void setContentA(Object contentA) {
+  public void setContentA(T contentA) {
     this.contentA = contentA;
   }
 
-  public Object getContentB() {
+  public U getContentB() {
     return contentB;
   }
 
-  public void setContentB(Object contentB) {
+  public void setContentB(U contentB) {
     this.contentB = contentB;
+  }
+
+  public void doSomething() {
+    System.out.println(contentB.doubleValue());
   }
 
 }

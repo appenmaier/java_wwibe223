@@ -24,6 +24,9 @@ public class D07_Generics {
     Integer int1 = integerBox.getContentA();
     Integer int2 = integerBox.getContentB();
 
+    System.out.println(int1);
+    System.out.println(int2);
+
     /* String-Box */
     StringBox stringBox = new StringBox();
 
@@ -33,14 +36,20 @@ public class D07_Generics {
     String string1 = stringBox.getContentA();
     String string2 = stringBox.getContentB();
 
+    System.out.println(string1);
+    System.out.println(string2);
+
     /* Box */
-    Box box = new Box();
+    Box<String, Integer> box = new Box<>();
 
     box.setContentA("Hans");
     box.setContentB(127);
 
-    Integer int3 = (Integer) box.getContentA();
-    String string3 = (String) box.getContentB();
+    String string3 = box.getContentA();
+    Integer int3 = box.getContentB();
+
+    System.out.println(string3);
+    System.out.println(int3);
 
   }
 
