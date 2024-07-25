@@ -63,6 +63,16 @@ public class D08_Maps {
       Double grade = entry.getValue();
       System.out.println(student.id() + ": " + grade);
     }
+    System.out.println();
+
+    /* ForEach-Methoden */
+    studentsWithGrade.keySet().forEach(System.out::println);
+    System.out.println();
+    studentsWithGrade.values().forEach(System.out::println);
+    System.out.println();
+    studentsWithGrade.entrySet().forEach(System.out::println);
+    System.out.println();
+    studentsWithGrade.forEach((student, grade) -> System.out.println(student.id() + ": " + grade));
 
   }
 

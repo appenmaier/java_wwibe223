@@ -4,6 +4,7 @@
 
 - Installiere ein [JDK](https://www.oracle.com/java/technologies/downloads/#jdk21-windows)
 - Installiere [Eclipse](https://www.eclipse.org/), [BlueJ](https://www.bluej.org/index.html) oder eine andere IDE
+- Installiere [Lombok](https://projectlombok.org/)
 - Installiere [Git](https://git-scm.com/downloads)
 
 ## Klone das remote Repository
