@@ -12,25 +12,6 @@ import java.util.List;
  */
 public class Order {
 
-  private List<OrderItem> items;
-
-  public Order() {
-    items = new LinkedList<>();
-  }
-
-  public void addOrderItem(String description) {
-    OrderItem orderItem = new OrderItem(description);
-    items.add(orderItem);
-  }
-
-  public void addOrderItem(OrderItem orderItem) {
-    items.add(orderItem);
-  }
-
-  public List<OrderItem> items() {
-    return items;
-  }
-
   /**
    * Bestellposition
    *
@@ -50,6 +31,25 @@ public class Order {
       return description;
     }
 
+  }
+
+  private List<OrderItem> items;
+
+  public Order() {
+    items = new LinkedList<>();
+  }
+
+  public void addOrderItem(OrderItem orderItem) {
+    items.add(orderItem);
+  }
+
+  public void addOrderItem(String description) {
+    OrderItem orderItem = new OrderItem(description);
+    items.add(orderItem);
+  }
+
+  public List<OrderItem> items() {
+    return items;
   }
 
 }

@@ -14,16 +14,16 @@ public enum VideoGameSystem {
     this.maker = maker;
   }
 
-  public String title() {
-    return title;
+  public String maker() {
+    return maker;
   }
 
   public String publishingYear() {
     return publishingYear;
   }
 
-  public String maker() {
-    return maker;
+  public String title() {
+    return title;
   }
 
 }
