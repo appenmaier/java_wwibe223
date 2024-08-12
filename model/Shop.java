@@ -18,10 +18,15 @@ public record Shop<T extends Comparable<T>>(String name, Map<T, List<Integer>> a
   // 2,5
 
   public void addProduct(T product) { // 0,5
+    /* Variante A */
     if (!assortment.containsKey(product)) { // 1
       assortment.put(product, new ArrayList<>()); // 1
     }
+
+    /* Variante B */
     // assortment.putIfAbsent(product, new ArrayList<>()); // 2
+
+    /* Variante C (ungueltig) */
     // if (!assortment.containsKey(product)) { // 1
     // assortment.put(product, null); // 1
     // }
@@ -37,11 +42,15 @@ public record Shop<T extends Comparable<T>>(String name, Map<T, List<Integer>> a
       throw new InvalidRatingException(rating); // 1 - 1,5
     }
 
+    /* Variante A */
     List<Integer> ratings = assortment.get(product); // 1
-    // if (ratings == null) {
-    // assortment.put(product, new ArrayList<>());
-    // }
     ratings.add(rating); // 0,5 - 1
+
+    /* Variante B (ungueltig) */
+    // if (ratings == null) {
+    // assortment.put(product, new ArrayList<>()); // 1
+    // }
+    // ratings.add(rating); // 0,5 - 1
   } // 6,5 - 8
 
   public Optional<T> getBestRatedProduct() { // 0,5
