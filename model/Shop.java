@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -54,7 +53,9 @@ public record Shop<T extends Comparable<T>>(String name, Map<T, List<Integer>> a
   } // 6,5 - 8
 
   public Optional<T> getBestRatedProduct() { // 0,5
+    /* Variante 1A */
     T bestRatedProduct = null; // 1
+    /* Variante 1B */
     // Optional<T> bestRatedProduct = Optional.empty(); // 1 - 1,5
     double bestAverageRating = 0; // 0,5
 
@@ -62,33 +63,49 @@ public record Shop<T extends Comparable<T>>(String name, Map<T, List<Integer>> a
       T product = entry.getKey(); // 0,5 - 1
       List<Integer> ratings = entry.getValue(); // 0,5 - 1
 
-      double totalRating = 0; // 0,5
-      for (int rating : ratings) { // 1
-        totalRating += rating; // 1
-      }
-      double averageRating = totalRating / ratings.size(); // 1 - 1,5
+      /* Variante 2A */
+      // double totalRating = 0; // 0,5
+      // for (int rating : ratings) { // 1
+      // totalRating += rating; // 1
+      // }
+      // double averageRating = totalRating / ratings.size(); // 1 - 1,5
+      /* Variante 2B */
+      double averageRating = ratings.stream()
+          .mapToInt(rating -> rating)
+          .average()
+          .getAsDouble(); // 3,5 - 4
 
       if (averageRating > bestAverageRating) { // 1
+        /* Variante 1A */
         bestRatedProduct = product; // 0,5 - 1
+        /* Variante 1B */
         // bestRatedProduct = Optional.of(product); // 0,5 -1
         bestAverageRating = averageRating; // 0,5 - 1
       }
     }
 
+    /* Variante 1A */
     return Optional.ofNullable(bestRatedProduct); // 1 - 1,5
+    /* Variante 1B */
     // return bestRatedProduct; // 1
   } // 10,5 - 14
 
   public List<T> getAllProductsSortedByNaturalOrdering() { // 0,5
-    List<T> allProducts = new ArrayList<>(); // 0,5
-    for (T product : assortment.keySet()) { // 1
-      allProducts.add(product); // 0,5 - 1
-    }
+    /* Variante A */
+    // List<T> allProducts = new ArrayList<>(); // 0,5
+    // for (T product : assortment.keySet()) { // 1
+    // allProducts.add(product); // 0,5 - 1
+    // }
+    /* Variante B */
     // List<T> allProducts = new ArrayList<>(assortment.keySet()); // 2 - 2,5
-
-    Collections.sort(allProducts); // 1
-
-    return allProducts; // 0,5
+    //
+    // Collections.sort(allProducts); // 1
+    // return allProducts; // 0,5
+    /* Variante C */
+    return assortment.keySet()
+        .stream()
+        .sorted()
+        .toList(); // 3,5 - 4
   } // 4 - 4,5
 
 } // 2 - 2,5
